@@ -11,8 +11,9 @@
    > - ```npx sequelize-cli db:migrate``` for create Model
    > - ```npx sequelize-cli db:seed:all``` for seeding data
 - run server with command ```npm start```
-
-
+&nbsp;
+## HOW TO RUN FRONTEND
+- Open index HTML in live server or open to Browser
 &nbsp;
 ## Endpoints :
 
