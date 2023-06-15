@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <title>CMS Page - Candidate List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Candidate</h5>
+        <button type="button" id="closeEdit" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm">
+          <div class="form-group">
+            <label for="editId">Id</label>
+            <input class="form-control" id="editId" type="number" placeholder="" disabled>
+          </div>
+          <div class="form-group">
+            <label for="editFullName">Full Name</label>
+            <input type="text" class="form-control" id="editFullName" name="editFullName" placeholder="Enter full name">
+          </div>
+          <div class="form-group">
+            <label for="editDob">Date of Birth</label>
+            <input type="text" class="form-control" id="editDob" name="editDob" placeholder="Enter date of birth">
+          </div>
+          <div class="form-group">
+            <label for="editPob">Place of Birth</label>
+            <input type="text" class="form-control" id="editPob" name="editPob" placeholder="Enter place of birth">
+          </div>
+          <div class="form-group">
+            <label for="editGender">Gender</label>
+            <select class="form-control" id="editGender" name="editGender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editYearExp">Years of Experience</label>
+            <input type="text" class="form-control" id="editYearExp" name="editYearExp" placeholder="Enter years of experience">
+          </div>
+          <div class="form-group">
+            <label for="editLastSalary">Last Salary</label>
+            <input type="text" class="form-control" id="editLastSalary" name="editLastSalary" placeholder="Enter last salary">
+          </div>
+          <button id="editFormButton" type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="https://i.ibb.co/NNwQFL2/joobseeker-removebg-preview.png" alt="Logo Joobseeker" width="120" height="60" class="d-inline-block align-text-top">
+        
+      </a>
+
+      <!-- Search Box -->
+      <form class="d-flex">
+        <input id="searchInput" class="form-control me-2" type="search" placeholder="Input Name Candidate" aria-label="Search">
+        <button id="searchButton" class="btn btn-outline-dark" type="button">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Candidate List</h1>
+    <button id="createCandidateButton" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#createCandidateModal">
+      Create Candidate
+    </button>
+    <div class="row" id="candidatesContainer"></div>
+    <div class="row mt-4">
+      <div class="col">
+        <nav aria-label="Candidate Pagination">
+          <ul class="pagination" id="pagination"></ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="createCandidateModal" tabindex="-1" aria-labelledby="createCandidateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Create Candidate Modal</h5>
+        </div>
+        <div class="modal-body">
+          <!-- Add your form fields here for creating a candidate -->
+          <form id="createCandidateForm">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="mb-3">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input type="text" class="form-control" id="dob" required>
+            </div>
+            <div class="mb-3">
+              <label for="pob" class="form-label">Place of Birth</label>
+              <input type="text" class="form-control" id="pob" required>
+            </div>
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <select class="form-select" id="gender" required>
+                <option value="" selected disabled>Select gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="yearExp" class="form-label">Years of Experience</label>
+              <input type="text" class="form-control" id="yearExp" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastSalary" class="form-label">Last Salary</label>
+              <input type="text" class="form-control" id="lastSalary">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="submitCandidateButton" type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- sweet alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="./main.js"></script>
+</body>
+</html>
